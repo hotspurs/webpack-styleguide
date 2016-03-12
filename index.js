@@ -2,40 +2,14 @@
 
 const express = require('express'),
       app = express(),
-      webpack = require('webpack'),
-      webpackDevMiddleware = require('webpack-dev-middleware'),
-      path = require('path');
+      path = require('path'),
+      webpackStyleguide = require('./lib/styleguide.js');
 
 
-app.use('/', function(req, res, next){
+app.use('/styleguide', webpackStyleguide(app));
 
-  let dir = req.query.dir,
-      block = req.query.block,
-      compiler = webpack({
-        entry: 'blocks/' + dir + '/' + block + '/index.js',
-        output: {
-          path : '/',
-          filename: 'build.js',
-          publicPath: '/build/'
-        }
-      }),
-      middleware = webpackDevMiddleware(compiler, {
-          publicPath: '/'
-      });
-
-  app.use(middleware);
-
-  next();
-
-});
-
-app.get('/', (req, res, next) => {
-
-
-  console.log('HERE', webpackDevMiddleware);
-
+app.get('/styleguide', (req, res, next) => {
   res.sendFile('index.html', { root: __dirname });
-
 });
 
 app.listen(3000);
