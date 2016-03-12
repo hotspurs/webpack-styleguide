@@ -1,1 +1,1 @@
-require("./common/button/index.js");
+require("./common/link/index.js");
