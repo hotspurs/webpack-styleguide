@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+  head
+    title Webpack Styleguide
+  body
+  ul
+    each val, name in dirs
+      li= name
+        - if (typeof(val) === 'object'){
+          ul
+            each value, block in val
+              li
+                a(href="/styleguide?dir=#{name}&block=#{block}")= block
+        - }
+    #docs
+    #styleguide
+    script(src="build/build.js")
