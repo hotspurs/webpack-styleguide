@@ -8,6 +8,6 @@ require('./style.styl');
 
 
 document.getElementById('styleguide').innerHTML = markup;
-document.getElementById('docs').innerHTML = docs;
+document.querySelector('.markdown-body').innerHTML = docs;
 
 block.init();

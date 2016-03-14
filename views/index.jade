@@ -2,6 +2,7 @@ doctype html
 html(lang="en")
   head
     title Webpack Styleguide
+    link(rel="stylesheet" href="css/markdown.css")
   body
   ul
     each val, name in dirs
@@ -12,6 +13,6 @@ html(lang="en")
               li
                 a(href="/styleguide?dir=#{name}&block=#{block}")= block
         - }
-    #docs
-    #styleguide
+    .markdown-body
+    #styleguide(style="margin-top:50px;")
     script(src="build/build.js")
