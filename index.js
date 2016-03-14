@@ -2,21 +2,9 @@
 
 const express = require('express'),
       app = express(),
-      path = require('path'),
       webpackStyleguide = require('./lib/styleguide.js'),
-      scanDir = require('./lib/scan-dir.js');
+      config = require('./lib/webpack.config.js');
 
-app.use('/styleguide', webpackStyleguide(app));
-
-app.get('/styleguide', (req, res, next) => {
-
-  scanDir(path.join(process.cwd(), '/blocks')).then(function(data){
-
-    res.render('index.jade', { dirs: data.dir});
-    
-  });
-
-});
-
+app.use('/styleguide', webpackStyleguide(app, config));
 
 app.listen(3000);

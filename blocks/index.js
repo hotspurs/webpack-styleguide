@@ -1,1 +1,1 @@
-require("./form/field/index.js");
+require("./common/link/index.js");
