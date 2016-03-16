@@ -1,1 +1,1 @@
-require("./form/field/index.js");
+require("webpack-styleguide-loader!./common/link/index.js");
