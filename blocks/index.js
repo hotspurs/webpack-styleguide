@@ -1,1 +1,2 @@
-require("webpack-styleguide-loader!./common/link/index.js");
+require("./common/button/index.js");
+  
